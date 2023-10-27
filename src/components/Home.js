@@ -46,10 +46,20 @@ const Home = ({ setMenu }) => {
             <span>Scroll Down</span>
           </a>
         </div>
-        <div className="home-content__line" />
+        <div
+          className="home-content__line"
+          onClick={(e) => {
+            setMenu("");
+          }}
+        />
       </div>
       {/* end home-content */}
-      <ul className="home-social">
+      <ul
+        className="home-social"
+        onClick={(e) => {
+          setMenu("");
+        }}
+      >
         <li>
           <a href="#0">
             <i className="fa fa-facebook" aria-hidden="true" />

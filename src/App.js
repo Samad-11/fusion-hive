@@ -7,7 +7,6 @@ import Work from "./components/Work";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 // import Loader from "./components/Loader";
-import Photo from "./components/Photo";
 import SEO from "./components/SEO";
 import Pricing from "./components/Pricing";
 
@@ -15,7 +14,6 @@ function App() {
   const [menu, setMenu] = useState("");
   let title = "Fusion Hive";
   const hashChanged = () => {
-    console.log(window.location.hash);
     if (window.location.hash.length < 1) {
       title = "Fusion Hive";
     } else {
@@ -33,9 +31,8 @@ function App() {
       <Work setMenu={setMenu} />
       <Pricing setMenu={setMenu} />
       <Contact setMenu={setMenu} />
-      <Footer setMenu={setMenu} />
-      <Photo />
       {/* <Loader /> */}
+      <Footer setMenu={setMenu} />
     </div>
   );
 }

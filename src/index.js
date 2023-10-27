@@ -7,11 +7,20 @@ import { Toaster } from "react-hot-toast";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <>
+    <Toaster
+      toastOptions={{
+        className: "",
+        style: {
+          border: "1px solid #713200",
+          padding: "16px",
+          color: "#713200",
+          zIndex: "10000000",
+          position: "relative",
+        },
+      }}
+      position="bottom-right"
+      reverseOrder={false}
+    />
     <App />
-    <Toaster position="bottom-left" reverseOrder={false} />
   </>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals

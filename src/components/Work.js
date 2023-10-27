@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Work = ({ setMenu }) => {
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
   return (
-    <section id="works" className="s-works">
+    <section
+      id="works"
+      className="s-works"
+      onClick={(e) => {
+        setMenu("");
+      }}
+    >
       <div className="intro-wrap">
         <div
           className="row section-header has-bottom-sep light-sep"

@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Service = ({ setMenu }) => {
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
   return (
-    <section id="services" className="s-services">
+    <section
+      id="services"
+      className="s-services"
+      onClick={(e) => {
+        setMenu("");
+      }}
+    >
       <div className="row section-header has-bottom-sep" data-aos="fade-up">
         <div className="col-full">
           <h3 className="subhead">What We Do</h3>

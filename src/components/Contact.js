@@ -1,12 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import toast from "react-hot-toast";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Contact = ({ setMenu }) => {
-  const onClickSubmit = () => {
-    toast.success("Your Message has been sent Successfully");
+  const sent = true;
+  const onSubmitHandle = async (e) => {
+    e.preventDefault();
+    if (sent) {
+      toast.success("Message Sent Successfully", { duration: 4000 });
+    }
   };
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
   return (
-    <section id="contact" className="s-contact">
+    <section
+      id="contact"
+      className="s-contact"
+      onClick={(e) => {
+        setMenu("");
+      }}
+    >
       <div className="overlay" />
       <div className="contact__line" />
       <div className="row section-header" data-aos="fade-up">
@@ -20,7 +36,7 @@ const Contact = ({ setMenu }) => {
       <div className="row contact-content" data-aos="fade-up">
         <div className="contact-primary">
           <h3 className="h6">Send Us A Message</h3>
-          <form name="contactForm" id="contactForm">
+          <form name="contactForm" id="contactForm" onSubmit={onSubmitHandle}>
             <fieldset>
               <div className="form-field">
                 <input
@@ -61,12 +77,7 @@ const Contact = ({ setMenu }) => {
                   required
                   className="full-width"
                 />
-                <button
-                  onClick={onClickSubmit}
-                  className="full-width btn--primary"
-                >
-                  Submit
-                </button>
+                <button className="full-width btn--primary">Submit</button>
               </div>
               <div className="form-field">
                 <div className="submit-loader">

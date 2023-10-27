@@ -1,6 +1,22 @@
+import AOS from "aos";
+import "aos/dist/aos.css";
+import React, { useEffect } from "react";
+import CountUp from "react-countup";
+
 const About = ({ setMenu }) => {
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
+
   return (
-    <section id="about" className="s-about">
+    <section
+      id="about"
+      className="s-about"
+      onClick={(e) => {
+        setMenu("");
+      }}
+    >
       <div className="row section-header has-bottom-sep" data-aos="fade-up">
         <div className="col-full">
           <h3 className="subhead subhead--dark">Hello There</h3>
@@ -26,19 +42,30 @@ const About = ({ setMenu }) => {
         data-aos="fade-up"
       >
         <div className="col-block stats__col ">
-          <div className="stats__count">127</div>
+          <div className="stats__count">
+            {" "}
+            <CountUp start={0} end={127} duration={10} />
+          </div>
           <h5>Project Completed</h5>
         </div>
         <div className="col-block stats__col">
-          <div className="stats__count">1505</div>
+          <div className="stats__count">
+            <CountUp start={0} end={100} duration={12} />
+          </div>
           <h5>Appraisal</h5>
         </div>
         <div className="col-block stats__col">
-          <div className="stats__count">109</div>
+          <div className="stats__count">
+            {" "}
+            <CountUp start={0} end={109} duration={15} />
+          </div>
           <h5>Projects Completed</h5>
         </div>
         <div className="col-block stats__col">
-          <div className="stats__count">102</div>
+          <div className="stats__count">
+            {" "}
+            <CountUp start={0} end={102} duration={8} />
+          </div>
           <h5>Start Ups</h5>
         </div>
       </div>{" "}

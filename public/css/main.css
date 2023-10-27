@@ -2751,7 +2751,7 @@ html.no-csstransitions .home-content__main {
     height: 100%;
     -webkit-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
-    z-index: 100000;
+    z-index: 100;
 }
 
 .item-folio__thumb a::after {
